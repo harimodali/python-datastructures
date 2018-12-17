@@ -58,3 +58,28 @@ class LinkedList(object):
             else:
                 previous.set_next(current.get_next())
 
+    def insert_in_end(self,data):
+        current = self.head
+        if not current.get_data():
+            current = Node(data)
+        else:
+            while current:
+                if current.get_next() == None:
+                    break
+                else:
+                    current = current.get_next()
+            new_node = Node(data)
+            current.set_next(new_node)
+
+    def __str__(self):
+        rs = "Head -->"
+        current = self.head
+        while current:
+            rs += str(current.get_data()) + "-->"
+            current = current.get_next()
+        rs += "None"
+        return rs
+            
+
+                    
+            
